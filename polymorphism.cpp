@@ -8,9 +8,9 @@ protected:
     int height;
 
 public:
-    Animal(Animal &copy)
+    Animal(Animal* copy)
     {
-        this->height = copy.height;
+        this->height = copy->height;
     }
     Animal(int height)
     {
@@ -56,9 +56,9 @@ public:
 int main()
 {
 
-    Dog dog1(7);
-    Dog dog2(dog1);
-    dog2.animalSound();
-    dog2.printHeight();
+    Dog* dog1 = new Dog(7);
+    Dog* dog2 = new Dog(*dog1);
+    dog2 -> animalSound();
+    dog2 -> printHeight();
     return 0;
 }
